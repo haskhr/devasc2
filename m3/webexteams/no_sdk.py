@@ -20,7 +20,7 @@ def main():
     room_name = "Infrastructure TL Only"
 
     # Basic variables to reduce typing later. The API path is just the
-    # always-on Webex Teams service in DevNet. Webex Teams was formerly
+    # always-on Webex Teams sandbox in DevNet. Webex Teams was formerly
     # known as Cisco Spark and I expect the URL to be updated at some
     # point to reflect the new name.
     api_path = "https://api.ciscospark.com/v1"
