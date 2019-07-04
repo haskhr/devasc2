@@ -40,9 +40,9 @@ def main():
         "password": "Cisco1234",
     }
 
-    # Issue the POSt request to the proper URL with the predefined headers
+    # Issue the POST request to the proper URL with the predefined headers
     # and body dictionaries. Be sure to ignore SSL cert checking as this
-    # is standalone sandbox FTD instance.
+    # is a standalone sandbox FTD instance.
     token_response = requests.post(
         f"{api_path}/fdm/token",
         headers=post_headers,
@@ -96,7 +96,7 @@ def main():
     # If the object already exists, the request will receive a 422
     # response indicating that the object already exists. A more elegant
     # approach would be checking for existing before issuing the POST,
-    # but this is just a simple exampl.e
+    # but this is just a simple example.
     if post_net_response.ok:
         print("Added njrusmc.net object for the first time")
 
