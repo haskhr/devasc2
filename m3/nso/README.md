@@ -18,7 +18,7 @@ can install it using these commands:
   * On RedHat-based distributions: `yum install openconnect`
   * On Debian-based distributions: `apt install openconnect`
 
-> Example usage: `sudo openconnect -b dcloud-lon-anyconnect.cisco.com`
+> Example usage: `openconnect -b dcloud-lon-anyconnect.cisco.com`
 
 Be sure to use your own VPN target, then answer the interactive username
 and password prompts using your temporary credentials.
