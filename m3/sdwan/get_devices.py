@@ -6,7 +6,6 @@ Purpose: Basic consumption of Cisco SD-WAN REST API using the
 public Cisco DevNet sandbox.
 """
 
-import sys
 import requests
 
 
@@ -44,6 +43,7 @@ def main():
     # a failure. If a failure does occur, exit the program using code 1.
     if not auth_resp.ok or auth_resp.text:
         print("Login failed")
+        import sys
         sys.exit(1)
 
     # At this point, we've authenticated to SD-WAN using the REST API and can
@@ -53,6 +53,10 @@ def main():
     device_resp = sess.get(f"{api_path}/device", verify=False)
     if device_resp.ok:
         devices = device_resp.json()["data"]
+
+        # Debugging line; pretty-print JSON to see structure
+        # import json; print(json.dumps(devices, indent=2))
+
         print(f"Devices managed by DevNet SD-WAN sandbox:")
         for dev in devices:
             print(f"Device IP: {dev['system-ip']:<12} Name: {dev['host-name']}")

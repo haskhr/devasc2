@@ -20,36 +20,51 @@ def main():
     # are available here, be sure to check for updates:
     # https://developer.cisco.com/site/aci/
     api_path = "https://sandboxapicdc.cisco.com/api"
-    body = '{"aaaUser": {"attributes": {"name": "admin", "pwd": "ciscopsdt"}}}'
+    body = {"aaaUser": {"attributes": {"name": "admin", "pwd": "ciscopsdt"}}}
 
     # The ACI sandbox uses a self-signed cert at present, so let's ignore any
     # obvious security warnings for now.
     requests.packages.urllib3.disable_warnings()
 
     # Perform a POST request with the basic login information to get a token.
-    # The ACI API will parse JSON from the string body for login. Then, extract
+    # The ACI API will consume JSON from the body for login. Then, extract
     # the token from the large JSON structure that is returned.
-    response = requests.post(
-        f"{api_path}/aaaLogin.json", data=body, verify=False
+    auth_resp = requests.post(
+        f"{api_path}/aaaLogin.json", json=body, verify=False
     )
-    token = response.json()["imdata"][0]["aaaLogin"]["attributes"]["token"]
 
-    # For future authentication, the token must be supplied inside of a cookie
-    # named # "APIC-Cokkie=(token goes here)", so build a dict for these
-    # headers. In this case, we are collecting a list of ACI endpoint
-    # groups (EPGs).
+    # If HTTP POST fails, raise HTTPError, otherwise get JSON body
+    auth_resp.raise_for_status()
+    auth = auth_resp.json()
+
+    # Debugging line; pretty-print JSON to see structure
+    # import json; print(json.dumps(auth, indent=2))
+
+    # Extract token from within the JSON structure
+    token = auth["imdata"][0]["aaaLogin"]["attributes"]["token"]
+
+    # For future authentication, the token must be supplied inside of a header
+    # named "APIC-Cookie=<token>", so build a dict using that information.
+    # In this case, we are collecting a list of ACI endpoint groups (EPGs).
     headers = {"Cookie": f"APIC-Cookie={token}"}
-    response = requests.get(
+    epg_resp = requests.get(
         f"{api_path}/class/fvAEPg.json", headers=headers, verify=False
     )
-    epgs = response.json()
+
+    # If HTTP POST fails, raise HTTPError, otherwise get JSON body
+    epg_resp.raise_for_status()
+    epgs = epg_resp.json()
+
+    # Debugging line; pretty-print JSON to see structure
+    # import json; print(json.dumps(epgs, indent=2))
 
     # The API call above returns a list of dics, so iterate over the list
     # contained in "imdata" and extract the "dn" (the distinguished name)
     # from each dict.
     print("EPGs found:")
     for epg in epgs["imdata"]:
-        print(f"EPG Name: {epg['fvAEPg']['attributes']['dn']}")
+        attr = epg["fvAEPg"]["attributes"]
+        print(f"EPG Name: {attr['dn']}  Modified: {attr['modTs']}")
 
 
 if __name__ == "__main__":
