@@ -6,7 +6,6 @@ Purpose: Basic consumption of Cisco Firepower Management Console (FMC)
 REST API using the public Cisco DevNet sandbox (requires reservation).
 """
 
-import json
 import requests
 
 
@@ -84,7 +83,7 @@ def main():
     add_policy_response = requests.post(
         f"{api_path}/fmc_config/v1/domain/{domain_uuid}/policy/accesspolicies",
         headers=post_headers,
-        data=json.dumps(new_policy),
+        json=new_policy,
         verify=False,
     )
 

@@ -6,7 +6,6 @@ Purpose: Basic consumption of Cisco Firepower Threat Defense (FTD)
 REST API using the public Cisco DevNet sandbox (requires reservation).
 """
 
-import json
 import requests
 
 
@@ -46,7 +45,7 @@ def main():
     token_response = requests.post(
         f"{api_path}/fdm/token",
         headers=post_headers,
-        data=json.dumps(token_data),
+        json=token_data,
         verify=False,
     )
 
@@ -89,7 +88,7 @@ def main():
     post_net_response = requests.post(
         f"{api_path}/object/networks",
         headers=post_headers,
-        data=json.dumps(website_fqdn),
+        json=website_fqdn,
         verify=False,
     )
 

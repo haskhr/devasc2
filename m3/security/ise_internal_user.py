@@ -6,7 +6,6 @@ Purpose: Basic consumption of Cisco Identity Services Engine (ISE).
 REST API using the public Cisco DevNet sandbox (requires reservation).
 """
 
-import json
 import requests
 
 
@@ -46,7 +45,7 @@ def main():
         f"{api_path}/config/internaluser",
         headers=headers,
         auth=auth,
-        data=json.dumps(new_user),
+        json=new_user,
         verify=False,
     )
 

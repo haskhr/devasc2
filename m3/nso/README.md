@@ -21,11 +21,14 @@ can install it using these commands:
 > Example usage: `openconnect -b dcloud-lon-anyconnect.cisco.com`
 
 Be sure to use your own VPN target, then answer the interactive username
-and password prompts using your temporary credentials.
+and password prompts using your temporary credentials. If you run this as root
+it will clobber your `/etc/resolv.conf`, so be sure to make a backup if you
+want to be safe!
 
-# Relevant files
-There are (3) extra files related to the initial NSO configuration:
-  * `setup.sh`: Initial NSO installation, mostly ported from the install guide
+# Setup files
+There are (3) extra files related to the initial NSO configuration.
+They are stored in the `setup/` directory and do the following:
+  * `nso_install.sh`: Initial NSO installation, mostly ported from the install guide
   * `build_netsim.sh`: Used to add devices to netsim and start the simulation
   * `netsim_config.txt`: NSO CLI commands to register netsim devices to NSO
 
