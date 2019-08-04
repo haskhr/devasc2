@@ -8,6 +8,7 @@ comparable flow to the HTTP POST and async HTTP GET used in the
 previous course.
 """
 
+import time
 from dnacentersdk import api
 
 
@@ -47,12 +48,15 @@ def main():
     # Debugging line; pretty-print JSON to see structure
     # import json; print(json.dumps(add_data, indent=2))
 
+    # Wait 10 seconds and get the async task ID
+    time.sleep(10)
     task = add_data["response"]["taskId"]
     task_data = dnac.task.get_task_by_id(task)
 
     # Debugging line; pretty-print JSON to see structure
     # import json; print(json.dumps(task_data, indent=2))
 
+    # Ensure async task completed successfully
     if not task_data["response"]["isError"]:
         print("New device successfully added")
     else:
