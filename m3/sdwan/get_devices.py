@@ -18,7 +18,7 @@ def main():
     # always-on SD-WAN API (really, vManage) sandbox in DevNet.
     # IMPORTANT: You can see the full list of API calls using on-box
     # API documentation here: https://sandboxsdwan.cisco.com:8443/apidocs
-    api_path = "https://sandboxsdwan.cisco.com:8443/dataservice"
+    api_path = "https://sandboxsdwan.cisco.com:8443"
 
     # The SD-WAN sandbox uses a self-signed cert at present, so let's ignore any
     # obvious security warnings for now.
@@ -50,7 +50,7 @@ def main():
     # issue follow-on requests. Next, we collect a list of devices. Assuming
     # the request worked, iterate over the list of devices and print out
     # the device IP address and hostname for each device.
-    device_resp = sess.get(f"{api_path}/device", verify=False)
+    device_resp = sess.get(f"{api_path}/dataservice/device", verify=False)
     if device_resp.ok:
         devices = device_resp.json()["data"]
 

@@ -19,7 +19,7 @@ def meraki_get(resource):
     # we target the main Meraki site rather than a dedicated resource. Our
     # API key identifies who we are (in this case, an exploratory read-only
     # user in the DevNet sandbox. The API key is provided by DevNet
-    # on their website, but may change over time. Be sure to check here:
+    # in the sandbox, but may change over time. Be sure to check here:
     # https://developer.cisco.com/meraki/
     api_path = "https://dashboard.meraki.com/api/v0"
     headers = {
@@ -46,6 +46,9 @@ def main():
     # Get the list of organizations from the sandbox
     orgs = meraki_get("organizations")
     print("Organizations discovered:")
+
+    # Debugging line; pretty-print JSON to see structure
+    # import json; print(json.dumps(orgs, indent=2))
 
     # Iterate over each org. This loop does double-duty. It prints out each
     # discovered organization, but also performs a linear search for the
