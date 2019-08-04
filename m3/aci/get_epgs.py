@@ -3,7 +3,7 @@
 """
 Author: Nick Russo
 Purpose: Basic consumption of Cisco ACI REST API using the
-public Cisco DevNet sandbox.
+public Cisco DevNet sandbox to list current endpoint groups (EPG).
 """
 
 import requests
@@ -60,11 +60,10 @@ def main():
 
     # The API call above returns a list of dics, so iterate over the list
     # contained in "imdata" and extract the "dn" (the distinguished name)
-    # from each dict.
-    print("EPGs found:")
+    # and current configuration state from each dict.
+    print(f"EPGs found: {epgs['totalCount']}")
     for epg in epgs["imdata"]:
-        attr = epg["fvAEPg"]["attributes"]
-        print(f"EPG Name: {attr['dn']}  Modified: {attr['modTs']}")
+        print(f"  Name: {epg['fvAEPg']['attributes']['dn']}")
 
 
 if __name__ == "__main__":
