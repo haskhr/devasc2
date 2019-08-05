@@ -1,7 +1,9 @@
 # Module 5 - Getting Familiar with DevOps Processes and Tools
 This directory builds on the Module 4 code which includes several
 Docker-related and CRM-app related content. The additions are
-discussed below.
+discussed below. Note that the `install/` directory has been
+removed as it is assumed that Docker and `docker-compose` are
+still installed from the previous module.
 
 ## Tests
 This module introduced linting, unit tests, and system tests.
