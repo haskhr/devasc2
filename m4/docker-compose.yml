@@ -1,6 +1,6 @@
 ---
 # Version 3.7 for compose files corresponds with
-# docker engine 18.06.0 and newer (per docker docs).
+# Docker engine 18.06.0 and newer (per Docker docs).
 version: "3.7"
 
 # Nested dictionary of containers to create. I'm demonstrating
@@ -8,7 +8,7 @@ version: "3.7"
 # a "scale out" technique and you could put a load balancer in front.
 services:
   crm1:
-    build: .
+    build: "."
     image: "crm:latest"
     ports:
       - "5001:5000/tcp"
