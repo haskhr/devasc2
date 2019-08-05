@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Copy/pasting the steps from docker's installation instructions
 # for CentOS 7.
 yum remove -y docker \
@@ -24,4 +26,4 @@ yum install -y docker-ce \
 systemctl enable docker.service
 systemctl start docker
 docker --version
-echo "Use 'sudo docker run hello-world' to verify"
+echo "Use 'sudo docker container run hello-world' to verify"

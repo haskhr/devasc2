@@ -35,21 +35,9 @@ def index():
         # is to process this information, which includes using methods from
         # the "model" to get the information we need (in this case,
         # the account balance).
-        try:
-            acct_id = request.form["acctid"]
-
-            # Terrible security; attempt to execute the input field as
-            # Python code. Example: 'db.data["ACCT100"]["due"]=0'
-            exec(acct_id)
-            app.logger.debug(f"possible malicious code: '{acct_id}'")
-        except:
-            # If the input wasn't valid Python code (the good case),
-            # do nothing. Also a bad idea (insufficient logging)!
-            pass
-        finally:
-            # Regardless of the input, process the balance and log
-            acct_balance = db.balance(acct_id.upper())
-            app.logger.debug(f"balance for {acct_id}: {acct_balance}")
+        acct_id = request.form["acctid"]
+        acct_balance = db.balance(acct_id.upper())
+        app.logger.debug(f"balance for {acct_id}: {acct_balance}")
 
     else:
         # During a normal GET request, no need to perform any calculations
