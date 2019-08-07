@@ -59,12 +59,17 @@ def main():
     # Perform an HTTP GET to collect the list of users, which should
     # include the recently added user
     get_resp = requests.get(
-        f"{api_path}/config/internaluser", headers=headers, auth=auth, verify=False
+        f"{api_path}/config/internaluser",
+        headers=headers,
+        auth=auth,
+        verify=False,
     )
 
     # Iterate over users and print out the ID, name, and description
     for user in get_resp.json()["SearchResult"]["resources"]:
-        print(f"ID: {user['id']}  Name: {user['name']}  Desc: {user['description']}")
+        print(
+            f"ID: {user['id']}  Name: {user['name']}  Desc: {user['description']}"
+        )
 
 
 if __name__ == "__main__":

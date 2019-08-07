@@ -10,6 +10,9 @@ Reservable sandboxes, at the time of this writing, are hosted in Cisco dCloud.
 When the reservation is active, you'll be given a VPN target, username,
 and password. To learn more about dCloud, visit `https://dcloud.cisco.com/`
 
+This specific sandbox is currently hosted here, but the URL may change:
+`https://dcloud2-rtp.cisco.com/content/demo/549293`
+
 ## VPN details
 You'll need to install the `openconnect` Linux package so your devbox can
 VPN into dCloud. If you have a graphical interface on your devbox, you can
@@ -18,10 +21,10 @@ can install it using these commands:
   * On RedHat-based distributions: `yum install openconnect`
   * On Debian-based distributions: `apt install openconnect`
 
-> Example usage: `openconnect -b dcloud-lon-anyconnect.cisco.com`
+Example usage: `sudo openconnect -b dcloud-lon-anyconnect.cisco.com`
 
-Be sure to use your own VPN target, then answer the interactive username
-and password prompts using your temporary credentials. If you run this as root
+Be sure to use the correct VPN target, then answer the interactive username
+and password prompts using your temporary credentials. If you run this as root,
 it will clobber your `/etc/resolv.conf`, so be sure to make a backup if you
 want to be safe!
 
