@@ -1,7 +1,7 @@
 # Module 5 - Getting Familiar with DevOps Processes and Tools
 This directory builds on the Module 4 code which includes several
 Docker-related and CRM-app related content. The additions are
-discussed below. Note that the `install/` directory has been
+discussed below. Note that the `setup/` directory has been
 removed as it is assumed that Docker and `docker-compose` are
 still installed from the previous module.
 

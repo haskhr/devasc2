@@ -9,7 +9,7 @@ the model, view, and controller components into separate containers.
 ## Setup files
 I used basic Bash scripts to expedite the installation of Docker as
 such tasks are administrative in nature and not the focus of this course.
-These files are contained in the `install/` directory.
+These files are contained in the `setup/` directory.
   * `centos7_docker_install.sh`: Installs Docker on CentOS 7. Run as `sudo`.
   * `docker_compose_install.sh`: Installs `docker-compose`. Run as `sudo`.
 

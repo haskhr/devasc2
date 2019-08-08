@@ -1,7 +1,5 @@
-# Module 3: Working with Structured Data and Local Version Control
-This contains the files for the CRM application with the relevant updates
-made in this module. Note that these files are also used for
-`Module 4: Creating and Managing Basic Github Repositories` but all
-variants of the US dollars display are retained in the code, but commented
-out. This makes it easy to toggle between different styles for version
-control testing.
+# Module 6: Understanding Web Application Threats and Mitigations
+This directory contains the Globomantics CRM code except modified to
+be far less secure. The web interface is now susceptible to injection
+attacks. Enter code like `db.data["ACCT100"]["due"]=0` into the web
+form to overwrite database entries.
