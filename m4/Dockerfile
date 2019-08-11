@@ -1,6 +1,5 @@
-# Begin with a lightweight Python 3.7.3 container, which is the same
-# version we used for our development. Alpine Linux is a minimal
-# distribution and is popular for containerized apps.
+# Begin with a minimal Alpine Linux Python 3.7.3 container, which is the
+# same version we used for our development.
 FROM python:3.7.3-alpine
 LABEL maintainer="njrusmc@gmail.com"
 

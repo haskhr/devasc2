@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Copy/pasting the steps from docker's installation instructions
-# for CentOS 7.
+# for CentOS 7. Documentation reference below.
+# https://docs.docker.com/install/linux/docker-ce/centos/
 yum remove -y docker \
   docker-client \
   docker-client-latest \
