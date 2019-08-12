@@ -4,7 +4,7 @@ FROM python:3.7.3-alpine
 LABEL maintainer="njrusmc@gmail.com"
 
 # Shell commands to execute after basic Python 3.7 container
-# is deployed. We only need to install flash for this app.
+# is deployed. We only need to install flask for this app.
 RUN pip install flask
 
 # Change into the correct directory. WORKDIR is the Docker best practice
