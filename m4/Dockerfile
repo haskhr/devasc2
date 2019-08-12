@@ -11,7 +11,7 @@ RUN pip install flask
 # versus "RUN cd /src" as it is cleaner and more explicit.
 WORKDIR /src
 
-# Flash default HTTP port is TCP 5000 in the CRM app. This doesn't actually
+# Flask default HTTP port is TCP 5000 in the CRM app. This doesn't actually
 # publicly expose the port but serves as a useful reference.
 EXPOSE 5000/tcp
 
