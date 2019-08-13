@@ -21,3 +21,26 @@ The course demonstrated Travis CI at a high-level to illustrate how
 all the pieces fit together. The `.travis.yml` file contains the "script"
 that Travis will follow upon every `git push` or pull request (PR)
 operation.
+
+## Using unittest Instead of pytest
+I've included an alternative implementation of the `pytest` examples
+in the course using the `unittest` library. The files relevant to this
+alternative are shown below. 
+
+```
+$ tree src    
+src/
+|-- database_test_case.py
+|-- system_test_case.py
+|-- unittest_logs
+|   |-- fail_log.txt
+|   `-- pass_log.txt
+`-- unittest_run.py
+```
+
+The files in `unittest_logs/` directory just capture the output from running
+`unittest_run.py`. I show both successful and failed (TDD-based) runs.
+The `*_test_case.py` files inherit from `unittest.TestCase` which provides
+the backend `assert` methods, setup, teardown, and other basic features.
+The `unittest_run.py` is the main script which uses a variety of
+auxiliary `unittest` components to build and execute test suites.
