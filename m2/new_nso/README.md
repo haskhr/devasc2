@@ -6,6 +6,9 @@ demonstrating that new NSO sandbox.
 Also newly added are the NSO Swagger-style API docs:
 `https://developer.cisco.com/docs/nso/#!cisco-nso-swagger-api-docs`
 
-The ARP tables for `dist-rtr01` and `dist-rtr02` are included in the
-`data_ref/` directory for easy reference and viewing. I've also
-included a sample `arp_stats.csv` file, which is the script's output.
+The following reference files are included in `data_ref/`:
+  * `arp_stats.csv`: Script output file example containing all ARP entries
+  * `dist-rtr01-arp.json`: ARP entries present on first router
+  * `dist-rtr01-full.json`: ARP entries present on second router
+  * `dist-rtr02-arp.json`: Full device config/stats for first router
+  * `dist-rtr02-full.json`: Full device config/stats for second router
